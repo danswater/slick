@@ -1638,11 +1638,11 @@
         });
     };
 
-    $.fn.slickNext = function ( slideCount ) {
+    $.fn.slickNext = function (slideCount) {
         var _ = this;
         return _.each(function (index, element) {
 
-           slideCount = slideCount || _.options.slidesToScroll;
+           slideCount = slideCount || element.slick.options.slidesToScroll;
            element.slick.changeSlide({data: {message: 'next'}}, {'slidesToScroll' : slideCount});
 
         });
@@ -1668,11 +1668,11 @@
         });
     };
 
-    $.fn.slickPrev = function ( slideCount ) {
+    $.fn.slickPrev = function (slideCount) {
         var _ = this;
         return _.each(function (index, element) {
 
-           slideCount = slideCount || _.options.slidesToScroll;
+           slideCount = slideCount || element.slick.options.slidesToScroll;
            element.slick.changeSlide({data: {message: 'previous'}}, {'slidesToScroll' : slideCount});
 
         });
