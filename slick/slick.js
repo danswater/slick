@@ -403,8 +403,8 @@
         _.$slider.addClass('slick-slider');
 
         _.$slideTrack = (_.slideCount === 0) ?
-            $('<div class="slick-track"/>').appendTo(_.$slider) :
-            _.$slides.wrapAll('<div class="slick-track"/>').parent();
+            $('<ul class="slick-track"/>').appendTo(_.$slider) :
+            _.$slides.wrapAll('<ul class="slick-track"/>').parent();
 
         _.$list = _.$slideTrack.wrap(
             '<div class="slick-list"/>').parent();
@@ -756,7 +756,7 @@
         }
 
         if(_.options.accessibility === true) {
-            _.$list.on('keydown.slick', _.keyHandler); 
+            _.$list.on('keydown.slick', _.keyHandler);
         }
 
         $(window).on('orientationchange.slick.slick-' + _.instanceUid, function() {
