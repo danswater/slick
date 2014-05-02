@@ -48,6 +48,8 @@
                 fade: false,
                 infinite: true,
                 lazyLoad: 'ondemand',
+                onInit : null,
+                onReInit : null,
                 onBeforeChange: null,
                 onAfterChange: null,
                 pauseOnHover: true,
@@ -422,8 +424,8 @@
         _.slider.addClass("slick-slider");
 
         _.slideTrack = (_.slideCount === 0) ?
-            $('<div class="slick-track"/>').appendTo(_.slider) :
-            _.slides.wrapAll('<div class="slick-track"/>').parent();
+            $('<ul class="slick-track"/>').appendTo(_.slider) :
+            _.slides.wrapAll('<ul class="slick-track"/>').parent();
 
         _.list = _.slideTrack.wrap(
             '<div class="slick-list"/>').parent();
@@ -641,6 +643,10 @@
             _.loadSlider();
             _.initializeEvents();
             _.checkResponsive();
+        }
+
+        if (_.options.onInit !== null) {
+           _.options.onInit.call(this, _);
         }
 
     };
